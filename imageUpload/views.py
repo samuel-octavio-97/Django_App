@@ -6,10 +6,14 @@ from imageUpload.models import Image
 
 def uploadImage(request):
     if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES)
+        image_name = request.POST.get("name", "")
+        imageFile = request.FILES.get("image_file")
+        obj, created = Image.objects.update_or_create(
+            name=image_name,
+            defaults={'image_file': imageFile},
 
-        if form.is_valid():
-            form.save()
+        )
+        form = ImageForm(request.POST, request.FILES)
         return redirect('uploadImage')
 
     else:
