@@ -1,5 +1,4 @@
 from django.test import TestCase
-from imageUpload.models import Image
 from django.urls import resolve, reverse
 from imageUpload.views import upload_Image, list_Images, image_Detail
 

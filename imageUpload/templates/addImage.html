@@ -19,7 +19,7 @@
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %} {{ form.as_p }}
       <button type="submit">Upload Image</button>
-      <button><a href="{% url 'list' %}"> Image List</a></button>
     </form>
+    <button onclick="location.href='{% url 'list' %}'">Image List</button>
   </body>
 </html>

@@ -5,5 +5,5 @@ from django.db import models
 
 class Image(models.Model):
     name = models.CharField(max_length=50)
-    image_file = models.ImageField(
-        upload_to='')
+    image_file = models.ImageField(upload_to='')
+    # upload image to images folder

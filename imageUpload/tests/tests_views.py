@@ -1,8 +1,6 @@
 from django.test import TestCase, Client
 from imageUpload.models import Image
 from django.urls import resolve, reverse
-from imageUpload.views import upload_Image, list_Images
-import json
 
 
 class testeViews(TestCase):
@@ -18,8 +16,8 @@ class testeViews(TestCase):
         )
 
     def test_post(self):
-        response = self.client.post(self.detail_url)
-        self.assertEquals(response.status_code, 200)
+        response = self.client.post(self.add)
+        self.assertEquals(response.status_code, 302)
         self.assertEquals(self.image1.name, 'test')
         self.assertEquals(self.image1.image_file, '1.png')
 
