@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Image Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="col-md-4">
+      <h3>{{ image.name }}</h3>
+      <img
+        src="{{ image.image_file.url }}"
+        class="img-responsive"
+        style="width: 60%; float: left; margin-right: 10px"
+      />
+    </div>
+  </body>
+</html>

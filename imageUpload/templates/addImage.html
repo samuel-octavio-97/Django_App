@@ -5,10 +5,21 @@
     <title>Upload Image</title>
   </head>
   <body>
+    <div>
+      {% if messages%}
+      <ul>
+        {% for message in messages%}
+        <li>
+          <div>{{message}}</div>
+        </li>
+        {% endfor%}
+      </ul>
+      {% endif%}
     </div>
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %} {{ form.as_p }}
-      <button type="submit">Upload</button>
+      <button type="submit">Upload Image</button>
+      <button><a href="{% url 'list' %}"> Image List</a></button>
     </form>
   </body>
 </html>
