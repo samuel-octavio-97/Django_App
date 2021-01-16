@@ -19,3 +19,10 @@ def uploadImage(request):
     else:
         form = ImageForm()
     return render(request, 'addImage.html', {'form': form})
+
+
+def listImages(request):
+    if request.method == 'GET':
+        Images = Image.objects.all()
+        return render(request, 'imageList.html',
+                      {'images': Images})
