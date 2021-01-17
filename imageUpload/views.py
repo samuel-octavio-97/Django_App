@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from imageUpload.forms import ImageForm
 from imageUpload.models import Image
@@ -15,10 +15,8 @@ def upload_Image(request):
             name=image_name,
             defaults={'image_file': imageFile},
         )
-        form = ImageForm(request.POST, request.FILES)
         messages.success(request, 'image uploaded successfully')
-        return redirect('uploadImage')
-
+        return HttpResponseRedirect(request.path_info)
     else:
         form = ImageForm()
     return render(request, 'addImage.html', {'form': form})
